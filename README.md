@@ -91,3 +91,19 @@ data_text = data_in_text(pagedict,page_doc)
 We can collect all essential information in connection with the property using the above custom formula, and information will be stored in form of a dictionary.
 
 ![arthitecture](https://user-images.githubusercontent.com/31247506/211865710-d040b1b8-0bd2-41e9-90fb-c8b72356761f.png)
+
+
+### 2. Create Amazon S3 Bucket
+
+I create an Amazon S3 bucket in which I will store the final cvs file. In simple terms Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. There are lots of configuration options available for Amazon S3 bucket but for the sake of simplicity I am keeping all options as is. Scroll down the page and click "Create Bucket" button. 
+
+After creating the bucket, be sure that you have given public access to the objects, because your lambda code will send this object in the whatsapp message, so user should have access.
+
+![arthitecture](https://user-images.githubusercontent.com/31247506/211870024-13a5cec3-e828-470c-893c-d4357a8ca22f.png)
+
+### 3. Create Amazon Identity and Access Management (IAM) Policy & Role
+
+In this step we will create necessary Policies & Roles to put the data into Amazon S3 bucket and write into CloudWatch Logs. Later on we will assign this Role to the Lambda Function. Click on "Policies" which will open page listing all available policies, then type S3 in the search bar and type PutObject. Provide the proper name to the policy, I gave the name as AWSS3PutObject and then click "Create policy" button. If everything went well, the new AWSS3PutObject policy should be available in the list. 
+
+On the left Panel there should be option to select "Roles" and create the role named AWSS3PutRole.Then type AWSS3PutObject in the search bar and select the same policy. This role will be assigned in the later stages.
+
