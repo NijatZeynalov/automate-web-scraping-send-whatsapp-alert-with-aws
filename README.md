@@ -124,10 +124,10 @@ The most of the heavy lifting is already done, Lambda function is running as exp
 
 ### 6. Conclusion
 
-In this project, we have done following concepts
+In this project, we have done following concepts:
 
-Creation of Amazon S3 bucket, IAM policies & Role.
+[x] Creation of Amazon S3 bucket, IAM policies & Role.
 
-Creation & configuration AWS Lambda functions.
+[x] Creation & configuration AWS Lambda functions.
 
-Automation of AWS Lambda runs. 
+[x] Automation of AWS Lambda runs. 
