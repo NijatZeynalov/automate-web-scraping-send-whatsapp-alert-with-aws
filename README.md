@@ -51,3 +51,38 @@ def page_content(base_url,page_idx):
         pagedict.append(page_content)
     return pagedict
 ```
+We will then extract and compile information after downloading the data using requests and beautiful soup libraries. data_in_text collects the key tags and classes from the html document and creates a large property data dictionary.
+
+```python
+def data_in_text(pagedict):
+    page_links1 = []
+
+    description=[0]*len(pagedict)
+    details=[0]*len(pagedict)
+    address=[0]*len(pagedict)
+    date=[0]*len(pagedict)
+    price=[0]*len(pagedict)
+    certificate=[0]*len(pagedict)
+    url=[0]*len(pagedict)
+
+    for i in range(len(pagedict)):
+        
+        description[i]=BeautifulSoup(pagedict[i]).find_all('p', class_="description")
+        details[i]=BeautifulSoup(pagedict[i]).find_all('h1',class_="text-nowrap")
+        address[i]=BeautifulSoup(pagedict[i]).find_all('p',class_="item-address")
+        date[i]=BeautifulSoup(pagedict[i]).find_all('span',class_="item-date")
+        price[i]=BeautifulSoup(pagedict[i]).find_all('h3',class_="item-price")
+        certificate[i]=BeautifulSoup(pagedict[i]).find_all('div',class_="item-certificate")
+        url[i]=BeautifulSoup(pagedict[i]).find_all('a',class_="more-details")
+        
+    for i in range(len(pagedict)):
+        for j in range(0,20):
+            try:
+                page_links1.append({'url':'kub.az'+url[i][j].get('href'),'certificate':certificate[i][j].text.strip(),'price':price[i][j].text.strip(),'date':date[i][j].text.strip(),
+                                    'details':''.join(details[i][j].text.split('\n')), 
+                                    'description':description[i][j].text.strip(), 'address':address[i][j].text.strip()})
+            except IndexError:
+                pass
+            continue
+    return(page_links1)
+```
