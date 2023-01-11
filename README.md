@@ -115,9 +115,19 @@ On the left panel Click Functions and then Click Create function button, keep de
 
 By Default Lambda function provides python script called as lambda_function.py and our code will replace default one. Once its done click on Deploy button, then  click the Test button.
 
-![](https://user-images.githubusercontent.com/31247506/211873043-7afefa78-3796-4229-a02b-16721dcb1a66.png)
+![](https://user-images.githubusercontent.com/31247506/211873463-28a88476-f4ac-4780-8c28-ca9e8441bc05.png)
+
 
 ### 5. Automate AWS Lambda function using Amazon EventBridge CloudWatch
 
+The most of the heavy lifting is already done, Lambda function is running as expected. Now its time to Automate the Lambda function run. This is fairly easy step and we are going to use [Amazon EventBridge] (https://aws.amazon.com/eventbridge/) service. On the left panel of Amazon Cloudwatch, click Rules and then click Create rule button. Set the appropriate rule name, in rate expression section set value as you want (30 mins. in my case). Then we will select our lambda function as a target. After this, trigger is assigned to Lambda function. The Lambda function should run after every 30 minutes and it create a new csv file in S3 bucket and send whatsapp message.
 
+### 6. Conclusion
 
+In this project, we have done following concepts
+
+Creation of Amazon S3 bucket, IAM policies & Role.
+
+Creation & configuration AWS Lambda functions.
+
+Automation of AWS Lambda runs. 
