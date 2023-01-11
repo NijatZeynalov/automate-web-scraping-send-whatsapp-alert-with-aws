@@ -85,4 +85,6 @@ def data_in_text(pagedict):
                 pass
             continue
     return(page_links1)
+    
+data_text = data_in_text(pagedict,page_doc)
 ```
