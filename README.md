@@ -126,8 +126,8 @@ The most of the heavy lifting is already done, Lambda function is running as exp
 
 In this project, we have done following concepts:
 
-[x] Creation of Amazon S3 bucket, IAM policies & Role.
+- [x]Creation of Amazon S3 bucket, IAM policies & Role.
 
-[x] Creation & configuration AWS Lambda functions.
+- [x]Creation & configuration AWS Lambda functions.
 
-[x] Automation of AWS Lambda runs. 
+- [x]Automation of AWS Lambda runs. 
