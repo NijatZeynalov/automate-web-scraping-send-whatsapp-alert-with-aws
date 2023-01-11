@@ -27,3 +27,27 @@ Here’s an outline of the steps I followed.
 3. Create IAM Policy & Role
 4. Setup AWS Lambda Function that save csv file to S3 bucket and send a message via whatsapp
 6. Automate AWS Lambda function using Amazon CloudWatch
+
+### 1. Web scraping using Python
+
+In this section we will take care of web scraping part. I will provide the python code to perform web scrapping of kub.az using bs4. First step to import required Python Libraries and define base_url. In this url, we will write down our desired conditions (price range, location and etc.).
+
+```python
+from bs4 import BeautifulSoup
+import requests
+from datetime import date
+```
+Then we create a function which will return the number of houses available on the webpage. A function page_content that collects HTML data as text and collects multiple pages of text data in form of 'pagedict' list. The function takes the key parameters such as base url and index per page.
+
+```python
+def page_content(base_url,page_idx):
+    pagedict = []
+    for item in range(page_idx):
+        
+        page = requests.get(base_url+(str(item + 1)))
+        if page.status_code !=200:
+                raise Exception(f"Unable to download {base_url+(item)}")
+        page_content = page.text
+        pagedict.append(page_content)
+    return pagedict
+```
