@@ -107,3 +107,17 @@ In this step we will create necessary Policies & Roles to put the data into Amaz
 
 On the left Panel there should be option to select "Roles" and create the role named AWSS3PutRole.Then type AWSS3PutObject in the search bar and select the same policy. This role will be assigned in the later stages.
 
+### 4. Setup AWS Lambda Function
+
+Next we will create and configure AWS Lambda, in which the web scraping Python code will executed. The Python code used for web scraping needs to install requests python library also our code requires twilio. Each platform has their own ways to install various dependent packages and drivers, In case of AWS Lambda there is something called Layers to deploy the packages. First we install / download required libraries in a local folder, then we zip the folder and upload the zip file to AWS Lambda layers.
+
+On the left panel Click Functions and then Click Create function button, keep default selection Author from scratch as is and provide appropriate function name. Then click on Configuration tab and then click Edit button. Set Memory as 1024 and Timeout as 5 min and click Save button.
+
+By Default Lambda function provides python script called as lambda_function.py and our code will replace default one. Once its done click on Deploy button, then  click the Test button.
+
+![](https://user-images.githubusercontent.com/31247506/211873043-7afefa78-3796-4229-a02b-16721dcb1a66.png)
+
+### 5. Automate AWS Lambda function using Amazon EventBridge CloudWatch
+
+
+
