@@ -88,3 +88,6 @@ def data_in_text(pagedict):
     
 data_text = data_in_text(pagedict,page_doc)
 ```
+We can collect all essential information in connection with the property using the above custom formula, and information will be stored in form of a dictionary.
+
+![arthitecture](https://user-images.githubusercontent.com/31247506/211865710-d040b1b8-0bd2-41e9-90fb-c8b72356761f.png)
